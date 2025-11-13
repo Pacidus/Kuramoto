@@ -39,3 +39,7 @@
 
 # debug information files
 *.dwo
+
+# output_files
+./data/
+*.mp4

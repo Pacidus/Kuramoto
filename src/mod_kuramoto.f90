@@ -6,20 +6,18 @@ contains
     
     subroutine initialize_grid(lx_arr, ly_arr, r)
         ! Initialize spatial grid and distance matrix
+        use mod_utils
+
         real(8), dimension(lx), intent(out) :: lx_arr
         real(8), dimension(ly), intent(out) :: ly_arr
         real(8), dimension(ly, lx), intent(out) :: r
         integer :: i, j
         
         ! Create x grid
-        do i = 1, lx
-            lx_arr(i) = -dl * real(lx,8) + real(i-1,8) * 2.0d0*dl*real(lx,8)/real(lx-1,8)
-        end do
+        call linspace(-dl * real(lx,8), dl * real(lx,8), lx, lx_arr)
         
         ! Create y grid
-        do j = 1, ly
-            ly_arr(j) = -dl * real(ly,8) + real(j-1,8) * 2.0d0*dl*real(ly,8)/real(ly-1,8)
-        end do
+        call linspace(-dl * real(ly,8), dl * real(ly,8), ly, ly_arr)
         
         ! Calculate distance matrix r
         do i = 1, lx

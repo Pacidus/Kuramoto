@@ -11,7 +11,7 @@ FFLAGS = -O3 -march=native
 FFTW_LIBS = -lfftw3 -lm
 
 # Source files
-MODULES = mod_constants.f90 mod_fft_utils.f90 mod_kuramoto.f90
+MODULES = mod_constants.f90 mod_fft_utils.f90 mod_kuramoto.f90 mod_utils.f90
 MAIN = kuramoto_main.f90
 
 # Object files
@@ -38,7 +38,10 @@ mod_constants.o: mod_constants.f90
 mod_fft_utils.o: mod_fft_utils.f90
 	$(FC) $(FFLAGS) -c $<
 
-mod_kuramoto.o: mod_kuramoto.f90 mod_constants.o mod_fft_utils.o
+mod_utils.o: mod_utils.f90
+	$(FC) $(FFLAGS) -c $<
+
+mod_kuramoto.o: mod_kuramoto.f90 mod_constants.o mod_fft_utils.o mod_utils.o
 	$(FC) $(FFLAGS) -c $<
 
 # Compile main program

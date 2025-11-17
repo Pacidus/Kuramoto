@@ -1,0 +1,28 @@
+# Kuramoto Simulation Configuration File
+# ==========================================
+
+# Simulation parameters
+dt = 0.01
+lx = 2048
+ly = 2048
+nsteps = 10000
+
+# Random seed for reproducibility
+random_seed = 12345
+
+# Initial state configuration
+use_initial_file = .false.
+initial_state_file = "initial_state.bin"
+
+# Output configuration
+output_path = ./output/
+output_interval = 100
+
+# Kernel configuration
+# Format: order, filename, beta
+# - order: coupling order (0, 1, 2, ...)
+# - filename: path to kernel binary file (or "none" to skip)
+# - beta: phase parameter for this coupling order
+0, kernel_order0.bin, 0.0
+1, kernel_order1.bin, 1.5707963267948966
+2, kernel_order2.bin, 0.7853981633974483

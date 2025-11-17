@@ -23,6 +23,6 @@ output_interval = 100
 # - order: coupling order (0, 1, 2, ...)
 # - filename: path to kernel binary file (or "none" to skip)
 # - beta: phase parameter for this coupling order
-0, kernel_order0.bin, 0.0
-1, kernel_order1.bin, 1.5707963267948966
-2, kernel_order2.bin, 0.7853981633974483
+0, kernel1.bin, 0.0
+1, kernel2.bin, 1.5707963267948966
+2, none, 0.7853981633974483
